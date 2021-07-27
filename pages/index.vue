@@ -1,8 +1,8 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="9" md="9" class="pa-0">
-      <v-card light class="px-4 py-10 mt-8" color="blue-grey lighten-5">
-        <p class="text-center text-h2">Игра</p>
+      <v-card light class="px-4 py-10 mt-8 gradient" raised>
+        <p class="text-center text-h2 font-weight-bold">Игра</p>
         <v-row>
           <v-col v-if="showGP" class="offset-md-2" cols="12" md="8">
             <v-row>
@@ -13,7 +13,7 @@
                   placeholder="Введите общее количество очков"
                 ></v-text-field
               ></v-col>
-              <v-btn class="mx-auto" @click="setGamePoints()"
+              <v-btn class="mx-auto btnColor" @click="setGamePoints()"
                 >Подтвердить</v-btn
               >
             </v-row>
@@ -23,7 +23,7 @@
               <v-col cols="12"
                 ><p class="text-center text-h4">{{ gamePoints }}</p></v-col
               >
-              <v-btn class="mx-auto mb-5" @click="resetGamePoints"
+              <v-btn class="mx-auto mb-5 btnColor" @click="resetGamePoints"
                 >Новая раздача</v-btn
               >
             </v-row>
@@ -32,7 +32,7 @@
 
         <v-row class="mt-15">
           <v-col cols="5">
-            <p class="text-center text-h5">Team 1</p>
+            <p class="text-center text-h5 font-weight-medium">Team 1</p>
             <!-- <v-text-field
               v-model="firstTeam"
               placeholder="Введите название команды 1"
@@ -43,13 +43,13 @@
               type="number"
               placeholder="Введите очки"
             ></v-text-field>
-            <v-btn class="px-1" @click="calculatScoreTeamOne"
+            <v-btn class="px-1 bgBtn" @click="calculatScoreTeamOne"
               >Подтвердить</v-btn
             >
           </v-col>
 
           <v-col cols="5" class="offset-2">
-            <p class="text-center text-h5">Team 2</p>
+            <p class="text-center text-h5 font-weight-medium">Team 2</p>
             <!-- <v-text-field
               v-model="secondTeam"
               placeholder="Введите название команды 2"
@@ -60,20 +60,26 @@
               type="number"
               placeholder="Введите очки"
             ></v-text-field>
-            <v-btn class="px-1" @click="calculateScoreTeamTwo"
+            <v-btn class="px-1 bgBtn" @click="calculateScoreTeamTwo"
               >Подтвердить</v-btn
             >
           </v-col>
         </v-row>
         <v-row class="mt-15">
           <v-col cols="5"
-            ><p>Общий счет команды 1: {{ totalOne }}</p></v-col
+            ><p class="font-weight-medium">
+              Общий счет команды 1: {{ totalOne }}
+            </p></v-col
           >
           <v-col cols="5" class="offset-2"
-            ><p>Общий счет команды 2: {{ totalTwo }}</p></v-col
+            ><p class="font-weight-medium">
+              Общий счет команды 2: {{ totalTwo }}
+            </p></v-col
           >
 
-          <v-btn class="mx-auto my-5" @click="newGame">Новая игра</v-btn>
+          <v-btn class="mx-auto my-5 btnColor" @click="newGame"
+            >Новая игра</v-btn
+          >
         </v-row>
       </v-card>
     </v-col>
@@ -139,3 +145,46 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+.gradient {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(234, 194, 194),
+    rgb(210, 246, 247)
+  );
+  background: -moz-linear-gradient(
+    45deg,
+    rgb(234, 194, 194),
+    rgb(210, 246, 247)
+  );
+  background: linear-gradient(45deg, rgb(234, 194, 194), rgb(210, 246, 247));
+}
+
+.btnColor {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(229, 157, 157),
+    rgb(171, 149, 163)
+  );
+  background: -moz-linear-gradient(
+    45deg,
+    rgb(229, 157, 157),
+    rgb(171, 149, 163)
+  );
+  background: linear-gradient(45deg, rgb(229, 157, 157), rgb(171, 149, 163));
+}
+
+.bgBtn {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(242, 232, 232),
+    rgb(178, 160, 160)
+  );
+  background: -moz-linear-gradient(
+    45deg,
+    rgb(242, 232, 232),
+    rgb(178, 160, 160)
+  );
+  background: linear-gradient(45deg, rgb(242, 232, 232), rgb(178, 160, 160));
+}
+</style>
